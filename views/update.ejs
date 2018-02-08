@@ -1,0 +1,22 @@
+<h1>
+	Update!
+	<form action='/update' method='post'>
+	<table>
+		<tr>
+			<td></td><td><input type="hidden" name="_id" value="<%= student._id %>" ></td>
+		</tr>
+		<tr>
+			<td>Name</td><td><input type="text" name="name" value="<%= student.name %>" ></td>
+		</tr>
+		<tr>
+			<td>age</td><td><input type="text" name="age" value="<%= student.age %>" ></td>
+		</tr>
+		<tr>
+			<td>gpa</td><td><input type="text" name="gpa" value="<%= student.gpa %>" ></td>
+		</tr>
+		<tr>
+			<td></td><td><input type="submit" value="Update"></td>
+		</tr>
+	</table>
+	</form>
+</h1>

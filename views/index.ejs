@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><title>Students DB</title></head>
+    <body>
+		<h2>Students list</h2>
+		<h3>
+			<a href='/insert'>Insert a student info</a>
+		</h3>
+		<br>
+		<table border = 1>
+			<tr>
+				<th>Name</th>
+				<th>age</th>
+				<th>gpa</th>
+				<th>update</th>
+				<th>remove</th>
+			</tr>
+			<% for (const student of results) { %>
+				<tr>
+					<td><%= student.name %></td>
+					<td><%= student.age %></td>
+					<td><%= student.gpa %></td>
+					<td>
+						<form action="/update" method="get">
+							<input type="hidden" name="_id" value="<%= student._id %>">
+							<input type="hidden" name="name" value="<%= student.name %>">
+							<input type="hidden" name="age" value="<%= student.age %>">
+							<input type="hidden" name="gpa" value="<%= student.gpa %>">
+							<input type="submit" value="Update">
+						</form>
+					</td>
+					<td>
+						<form action="/remove" method="get">
+							<input type="hidden" name="_id" value="<%= student._id %>">
+							<input type="submit" value="Remove">
+						</form>
+					</td>
+				</tr>
+			<% } %>
+		</table>
+    </body>
+</html>
