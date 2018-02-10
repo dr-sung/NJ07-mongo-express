@@ -14,7 +14,7 @@ const studentsdb = require('./studentsdb');
 app.get('/', (req, res) => {
 	studentsdb.find({}, (err, results) => {
 		if (err) {
-			res.status(505).send('<h1>find() error</h1>', err);
+			res.status(500).send('<h1>find() error</h1>', err);
 		} else {
 			res.render('index', {results});
 		}
@@ -33,7 +33,7 @@ app.post('/insert', (req, res) => {
 	};
 	studentsdb.insert(obj, (err, results) => {
 		if (err) {
-			res.status(505).send('<h1>insert() error</h1>', err);
+			res.status(500).send('<h1>insert() error</h1>', err);
 		} else {
 			res.redirect('/');
 		}
@@ -61,7 +61,7 @@ app.post('/update', (req, res) => {
 	};
 	studentsdb.update(query, value, (err, results) => {
 		if (err) {
-			res.status(505).send('<h1>Update Error</h1>', err);
+			res.status(500).send('<h1>Update Error</h1>', err);
 		} else {
 			res.redirect('/');
 		}
@@ -74,7 +74,7 @@ app.get('/remove', (req, res) => {
 	studentsdb.remove(query, (err, results) => {
 		if (err) {
 			console.log('remove error', err);
-			res.status(505).send('<h1>Remove Error</h1>', err);
+			res.status(500).send('<h1>Remove Error</h1>', err);
 		} else {
 			res.redirect('/');
 		}
