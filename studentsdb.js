@@ -21,8 +21,8 @@ function startDatabaseAndApp(app, port, callback) {
 		database = db.db(databaseName);
 		// disconnect when app terminates
 		process.on('SIGINT', () => {
-			database.logout((err, result) => {
-				database.close();
+			db.logout((err, result) => {
+				db.close();
 				console.log('connection closed');
 				process.exit(0);
 			});
